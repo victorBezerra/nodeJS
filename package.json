@@ -1,0 +1,22 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "estudando NodeJS e Express",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/victorBezerra/nodeJS.git"
+  },
+  "author": "Victor Bezerra",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/victorBezerra/nodeJS/issues"
+  },
+  "homepage": "https://github.com/victorBezerra/nodeJS#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
