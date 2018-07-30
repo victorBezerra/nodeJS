@@ -4,8 +4,13 @@ const path = require('path');
 const routes = require('./routes');
 const bodyParser = require('body-parser');
 
+app.set('view engine', 'pug');
+
 app.get('/', (req,res)=>{
-  res.send("Hello World!!");
+  res.render('index', {
+    message: "HELLO PUG"
+  });
+  // res.send("Hello World!!");
 });
 
 //Aprendendo middleware
