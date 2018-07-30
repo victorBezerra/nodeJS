@@ -8,6 +8,14 @@ const bodyParser = require('body-parser');
 //   res.send("Hello World!!");
 // });
 
+//Aprendendo middleware
+
+app.use( (req, res, next)=>{
+  console.log("MIDDLEWARE");
+  next();
+});
+
+//Fim
 app.get('/world', (req, res)=>{
   res.json({
     message: "Olá"
@@ -20,7 +28,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.use('/hello', routes);
-app.use('/', express.static(path.join(__dirname,'public')));
+app.use('/', express.static(path.join(__dirname,'view')));
 
 
 app.listen(3000, ()=>{

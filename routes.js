@@ -1,6 +1,12 @@
 const express = require('express');
 const router = express.Router();
 
+router.use((req,res,next)=>{
+  req.name= 'Victor'
+  console.log("MIDDLEWARE ROUTER",req.name);
+  next();
+});
+
 router.get('/', (req,res) => {
   res.json({
     message: 'hello world'
