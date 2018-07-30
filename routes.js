@@ -2,15 +2,13 @@ const express = require('express');
 const router = express.Router();
 
 router.use((req,res,next)=>{
-  req.name= 'Victor'
+  req.name = 'Victor'
   console.log("MIDDLEWARE ROUTER",req.name);
   next();
 });
 
-router.get('/', (req,res) => {
-  res.json({
-    message: 'hello world'
-  })
+router.get('/', (req,res,next) => {
+  next(new Error('error'));
 });
 
 router.get('/a+r', (req, res)=>{

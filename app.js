@@ -4,9 +4,9 @@ const path = require('path');
 const routes = require('./routes');
 const bodyParser = require('body-parser');
 
-// app.get('/', (req,res)=>{
-//   res.send("Hello World!!");
-// });
+app.get('/', (req,res)=>{
+  res.send("Hello World!!");
+});
 
 //Aprendendo middleware
 
@@ -16,6 +16,7 @@ app.use( (req, res, next)=>{
 });
 
 //Fim
+
 app.get('/world', (req, res)=>{
   res.json({
     message: "Olá"
@@ -28,8 +29,14 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.use('/hello', routes);
-app.use('/', express.static(path.join(__dirname,'view')));
+app.use('/index', express.static(path.join(__dirname,'public')));
 
+app.use((err,req,res,next)=>{
+  res.status(500)
+    .json({
+      message: 'ERRO'
+    })
+});
 
 app.listen(3000, ()=>{
   console.log("EXPRESS started!");
