@@ -1,14 +1,18 @@
 const express = require('express');
 const app = express();
-const http = require('http');
+const routes = require('./routes');
 
 app.get('/', (req,res)=>{
   res.send("Hello World!!");
 });
 
-// http.createServer(app).listen(3000, ()=>{
-//   console.log("EXPRESS STARTED!");
-// });
+app.get('/world', (req, res)=>{
+  res.json({
+    message: "Olá"
+  })
+});
+
+app.use('/hello', routes);
 
 app.listen(3000, ()=>{
   console.log("EXPRESS started!");
